@@ -1,5 +1,5 @@
 # ProjetSynthese
-This was my final project for my college degree in Computer Science (December 2017), completing my first sixteen months of programming experience. It has been written in four months, with very limited previous knowledge of C or C++ (or git). It is advised not to look at the code or the folder structure.
+This was my final project for my associate degree in Computer Science (December 2017), completing my first sixteen months of programming experience. It has been written in four months, with very limited previous knowledge of C or C++ (or git). It is advised not to look at the code or the folder structure.
 
 The project is a fully playable first person shooter (FPS). The player compete simple AIs on maps randomly generated.
 
