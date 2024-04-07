@@ -20,18 +20,32 @@ I am not the author of the textures. The credits can be found in [source.txt](ht
 ## Video
 [![video](https://raw.githubusercontent.com/ioioioio/JeuSynthese/master/images/source/video_preview.png)](https://drive.google.com/open?id=1K2qOEwOy1DAEULGPxS6SaIC325uOlYIq)
 
-## Build
-The code compiles as well on Linux with gcc and Windows with VisualStudio. C++11 is required. 
+## Building and running
 
 ### Linux
-Dependencies: dl, GL, glfw3, m, freetype, X11, Xcursor, Xi, Xinerama, Xrandr, Xxf86vm  
-Headers: include
 
-The dependencies must be installed independently.
+#### Dependencies
 
-These files and folders are useless on Linux and can be deleted: freetype271.dll, libs
+The following dependencies are required: dl, GL, glfw3, m, freetype, X11, Xcursor, Xi, Xinerama, Xrandr, Xxf86vm 
 
-A Code::Block project [is available](https://github.com/ioioioio/JeuSynthese/blob/master/JeuSyntheseLinux.cbp). This is probably the easiest way to build the project.
+On Ubuntu:
+``` shell
+sudo apt-get install libgl1-mesa-dev libglfw3 libglfw3-dev libfreetype6-dev libx11-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxxf86vm-dev
+```
+
+#### Build
+``` shell
+mkdir build
+cd build
+cmake ..
+make
+```
+
+#### Launch
+The game has to be launched from the root folder
+``` shell
+./build/JeuSynthese
+```
 
 ### Windows
 Dependencies: glfw3, opengl32, freetype271  
