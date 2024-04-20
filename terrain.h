@@ -1,7 +1,13 @@
 #ifndef TERRAIN_H
 #define TERRAIN_H
 
-#include <glad/glad.h>
+#ifdef __EMSCRIPTEN__
+    #include <emscripten.h>
+    #include <emscripten/html5.h>
+    #include <GLES3/gl3.h>
+#else
+    #include <glad/glad.h>
+#endif
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
@@ -25,10 +31,10 @@ struct Matrice3D : public std::array<std::array<std::array<T, largeur>, largeur>
 
 typedef std::array<int, 3> CoordMap;
 
-// InfosCase est utilisé pour déterminer le chemin à parcourir
+// InfosCase est utilisï¿½ pour dï¿½terminer le chemin ï¿½ parcourir
 class InfosCase {
 public:
-	InfosCase() {this->distance = 0; this->precedent = CoordMap {0,0,0};}; // constructeur par défaut bidon
+	InfosCase() {this->distance = 0; this->precedent = CoordMap {0,0,0};}; // constructeur par dï¿½faut bidon
 	InfosCase(float distance, CoordMap precedent) {this->distance = distance; this->precedent = precedent;};
 
 	float donner_distance() {return this->distance;};

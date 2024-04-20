@@ -1,6 +1,6 @@
 #include "text_rendering.h"
 
-// copier-collé de https://learnopengl.com/#!In-Practice/Text-Rendering
+// copier-collï¿½ de https://learnopengl.com/#!In-Practice/Text-Rendering
 TextRendering::TextRendering(unsigned int largeur_fenetre, unsigned int hauteur_fenetre)
 	: projection(glm::ortho(0.0f, static_cast<GLfloat>(largeur_fenetre), 0.0f, static_cast<GLfloat>(hauteur_fenetre)))
 {
@@ -40,11 +40,19 @@ TextRendering::TextRendering(unsigned int largeur_fenetre, unsigned int hauteur_
 		glTexImage2D(
 			GL_TEXTURE_2D,
 			0,
+#ifdef __EMSCRIPTEN__
+			GL_LUMINANCE,
+#else
 			GL_RED,
+#endif
 			face->glyph->bitmap.width,
 			face->glyph->bitmap.rows,
 			0,
+#ifdef __EMSCRIPTEN__
+			GL_LUMINANCE,
+#else
 			GL_RED,
+#endif
 			GL_UNSIGNED_BYTE,
 			face->glyph->bitmap.buffer
 		);

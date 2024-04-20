@@ -1,6 +1,12 @@
 #ifndef JEU_h
 #define JEU_H
-#include <glad/glad.h>
+#ifdef __EMSCRIPTEN__
+    #include <emscripten.h>
+    #include <emscripten/html5.h>
+    #include <GLES3/gl3.h>
+#else
+    #include <glad/glad.h>
+#endif
 #include <GLFW/glfw3.h>
 
 #include <glm/glm.hpp>
@@ -35,14 +41,14 @@ public:
 	void actualiser(float temps_courant);
 	void afficher();
 
-	// Gestion des périphériques
+	// Gestion des pï¿½riphï¿½riques
 	void gerer_touches(unsigned int touche, bool etat_touche);
 	void gerer_souris(double pos_x, double pos_y);
 
 private:
-	unsigned int dernier_id; // un id différent est assigné à chaque lanceur
-	unsigned int id_joueur; // id du lanceur assigné au joueur qui aux commandes de l'ordinateur
-	unsigned int id_lanceur_camera; // Le id du lanceur assigné à la caméra
+	unsigned int dernier_id; // un id diffï¿½rent est assignï¿½ ï¿½ chaque lanceur
+	unsigned int id_joueur; // id du lanceur assignï¿½ au joueur qui aux commandes de l'ordinateur
+	unsigned int id_lanceur_camera; // Le id du lanceur assignï¿½ ï¿½ la camï¿½ra
 
 
 	Affichage* affichage;

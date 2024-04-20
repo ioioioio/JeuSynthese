@@ -97,6 +97,6 @@ void ModeleSphere::dessiner(glm::mat4 matrice_projection, glm::mat4 matrice_mode
 
 	glBindTexture(GL_TEXTURE_2D, this->textures[type]);
 	glBindVertexArray(this->buffer_sommets);
-	glDrawElements(GL_TRIANGLES, 5400, GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, 1350, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
 }

@@ -22,6 +22,23 @@ I am not the author of the textures. The credits can be found in [source.txt](ht
 
 ## Building and running
 
+### WebAssembly
+#### Dependencies
+[Emscripten](https://emscripten.org/) has to be installed
+
+#### Build
+``` shell
+mkdir build
+cd build
+emcmake cmake ..
+emmake make
+```
+
+#### Launch
+1. Serve the build folder
+ex: `python -m http.server`
+2. Open `build/JeuSynthese.html` with a browser
+
 ### Linux
 
 #### Dependencies

@@ -3,7 +3,7 @@
 Jeu::Jeu(unsigned int largeur_fenetre, unsigned int hauteur_fenetre)
 	: dernier_id(0),
 	  id_joueur(0),
-      id_lanceur_camera(0), // Par défaut, la caméra est assignée au joueur (0).
+      id_lanceur_camera(0), // Par dï¿½faut, la camï¿½ra est assignï¿½e au joueur (0).
 	  delta_temps(0.0f),
       temps_derniere_image(0.0f),
 	  debut_jeu(true),
@@ -64,7 +64,7 @@ void Jeu::commencer_partie(unsigned int qte_lanceurs)
 void Jeu::actualiser(float temps_courant)
 {
 	if(this->temps_derniere_image == 0.0f) {
-		// On s'assure que temps_derniere_image est bien égal au temps de la dernière image.
+		// On s'assure que temps_derniere_image est bien ï¿½gal au temps de la derniï¿½re image.
 		// Autrement, le delta_temps initial est trop grand
 		this->temps_derniere_image = temps_courant;
 	}
@@ -86,7 +86,7 @@ void Jeu::actualiser(float temps_courant)
 	for(auto& paire_id_lanceur : this->lanceurs) {
 		Lanceur* lanceur {paire_id_lanceur.second};
 
-		// On actualise et on obtient un résultat
+		// On actualise et on obtient un rï¿½sultat
 		LanceurRetour retour = lanceur->actualiser(delta_temps, this->lanceurs, projectiles, this->terrain.donner_items(), this->terrain.donner_surfaces(), this->gravite);
 
 		this->projectiles.splice(this->projectiles.end(), retour.projectiles);
@@ -95,7 +95,7 @@ void Jeu::actualiser(float temps_courant)
 		}*/
 
 		int id_tueur {retour.id_tueur};
-		if(id_tueur >= 0) { // alors le lanceur vient d'être tué
+		if(id_tueur >= 0) { // alors le lanceur vient d'ï¿½tre tuï¿½
 			this->pointage[id_tueur]++; // le tueur gagne un point
 		}
 
@@ -144,7 +144,7 @@ void Jeu::gerer_touches(unsigned int touche, bool etat_touche)
 
 void Jeu::gerer_souris(double pos_x, double pos_y)
 {
-	// Y a-t-il un moyen élégant d'éliminer les warnings sans faire des casts partout ?
+	// Y a-t-il un moyen ï¿½lï¿½gant d'ï¿½liminer les warnings sans faire des casts partout ?
 	if(this->debut_jeu) {
 		this->ancien_x_souris = static_cast<float>(pos_x);
 		this->ancien_y_souris = static_cast<float>(pos_y);

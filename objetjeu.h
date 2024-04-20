@@ -1,7 +1,13 @@
 #ifndef OBJETJEU_H
 #define OBJETJEU_H
 
-#include <glad/glad.h>
+#ifdef __EMSCRIPTEN__
+    #include <emscripten.h>
+    #include <emscripten/html5.h>
+    #include <GLES3/gl3.h>
+#else
+    #include <glad/glad.h>
+#endif
 //#include <GLFW/glfw3.h>
 
 #include <glm/glm.hpp>
@@ -39,7 +45,7 @@ protected:
 	float tangage;
 
 	// Attributs d'orientation #2
-	// Avoir deux façons d'orienter l'objet est particulièrement douteux.
+	// Avoir deux faï¿½ons d'orienter l'objet est particuliï¿½rement douteux.
 	glm::vec3 axe_x_relatif;
 	glm::vec3 axe_y_relatif;
 	glm::vec3 axe_z_relatif;

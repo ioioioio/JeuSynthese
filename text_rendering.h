@@ -1,5 +1,5 @@
 /*
-	Cette classe est un copié-collé modifié de https://learnopengl.com/#!In-Practice/Text-Rendering
+	Cette classe est un copiï¿½-collï¿½ modifiï¿½ de https://learnopengl.com/#!In-Practice/Text-Rendering
 */
 
 // Std. Includes
@@ -7,7 +7,13 @@
 #include <map>
 #include <string>
 // GLAD
-#include <glad/glad.h>
+#ifdef __EMSCRIPTEN__
+    #include <emscripten.h>
+    #include <emscripten/html5.h>
+    #include <GLES3/gl3.h>
+#else
+    #include <glad/glad.h>
+#endif
 // GLFW
 #include <GLFW/glfw3.h>
 // GLM

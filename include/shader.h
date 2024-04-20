@@ -3,7 +3,14 @@
 #ifndef SHADER_H
 #define SHADER_H
 
-#include <glad/glad.h>
+#ifdef __EMSCRIPTEN__
+    #include <emscripten.h>
+    #include <emscripten/html5.h>
+    #include <GLES3/gl3.h>
+    #define GL_GEOMETRY_SHADER 0x8DD9
+#else
+    #include <glad/glad.h>
+#endif
 #include <glm/glm.hpp>
 
 #include <string>

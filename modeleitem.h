@@ -2,7 +2,7 @@
 #define MODELEITEM_H
 
 #include "modele.h"
-#include "item.h" // nécessaire ?
+#include "item.h" // nï¿½cessaire ?
 
 class ModeleItem : Modele
 {

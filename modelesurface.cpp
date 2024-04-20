@@ -70,6 +70,6 @@ void ModeleSurface::dessiner(glm::mat4 matrice_projection, glm::mat4 matrice_mod
 
 	glBindTexture(GL_TEXTURE_2D, this->textures[type]);
 	glBindVertexArray(this->buffer_sommets);
-	glDrawElements(GL_TRIANGLES, ModeleSurface::taille_indices, GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
 }

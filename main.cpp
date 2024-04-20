@@ -1,4 +1,11 @@
-#include <glad/glad.h>
+#ifdef __EMSCRIPTEN__
+    #include <emscripten.h>
+    #include <emscripten/html5.h>
+    #include <GLES3/gl3.h>
+#else
+    #include <glad/glad.h>
+	#include <functional>
+#endif
 #include <GLFW/glfw3.h>
 
 #include "jeu.h"
@@ -12,9 +19,10 @@ void key_callback(GLFWwindow* fenetre, int key, int scancode, int action, int mo
 void mouse_callback(GLFWwindow* fenetre, double pos_x, double pos_y);
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 
+std::function<void()> loop;
+void main_loop() { loop(); }
 
-
-Jeu* jeu; // Est déclaré en dehors du main pour que les fonctions de rappel y aient accès. Meilleure idée ?
+Jeu* jeu; // Est dï¿½clarï¿½ en dehors du main pour que les fonctions de rappel y aient accï¿½s. Meilleure idï¿½e ?
 int main()
 {
 	const unsigned int LARGEUR_FENETRE {800};
@@ -29,14 +37,14 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint(GLFW_SAMPLES, 32); // Pourquoi l'anti-aliasing fonctionne même lorsqu'il n'est pas activé ? (voir dans affichage)
+	glfwWindowHint(GLFW_SAMPLES, 32); // Pourquoi l'anti-aliasing fonctionne mï¿½me lorsqu'il n'est pas activï¿½ ? (voir dans affichage)
 
-	// création de la fenêtre
-	// Plein écran
+	// crï¿½ation de la fenï¿½tre
+	// Plein ï¿½cran
 	//GLFWwindow* fenetre = glfwCreateWindow(LARGEUR_FENETRE, HAUTEUR_FENETRE, "Projet synthese", glfwGetPrimaryMonitor(), nullptr);
-	// fenêtre
+	// fenï¿½tre
     GLFWwindow* fenetre = glfwCreateWindow(LARGEUR_FENETRE, HAUTEUR_FENETRE, "Projet synthese", NULL, NULL);
-	// copié-collé de learnopengl.com
+	// copiï¿½-collï¿½ de learnopengl.com
     if(fenetre == NULL) {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
@@ -53,22 +61,30 @@ int main()
     glfwSetInputMode(fenetre, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     // Initialisation de GLAD
-	// copié-collé de learnopengl.com
+	// copiï¿½-collï¿½ de learnopengl.com
+#ifndef __EMSCRIPTEN__
     if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
+#endif
 
 	jeu = new Jeu(LARGEUR_FENETRE, HAUTEUR_FENETRE);
 	jeu->commencer_partie(3);
-    while (!glfwWindowShouldClose(fenetre))
-    {
+	loop = [&] {
 		jeu->actualiser(static_cast<float>(glfwGetTime()));
 		jeu->afficher();
-
+	};
+#ifdef __EMSCRIPTEN__
+	emscripten_set_main_loop(main_loop, 0, true);
+#else
+    while (!glfwWindowShouldClose(fenetre))
+    {
+        loop();
         glfwSwapBuffers(fenetre);
         glfwPollEvents();
     }
+#endif
 
 	delete jeu;
     return 0;
@@ -91,7 +107,7 @@ void key_callback(GLFWwindow* fenetre, int key, int scancode, int action, int mo
 
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
-	// Penser à éliminer le copier-coller de key_callback
+	// Penser ï¿½ ï¿½liminer le copier-coller de key_callback
 	if (button >= 0 && button < 1024) {
 		if (action == GLFW_PRESS) {
 			jeu->gerer_touches(button, GL_TRUE);

@@ -1,6 +1,6 @@
 #include "modeleitem.h"
 
-const float ModeleItem::sommets[]{ // copié-collé de https://learnopengl.com/code_viewer_gh.php?code=src/2.lighting/6.multiple_lights/multiple_lights.cpp
+const float ModeleItem::sommets[]{ // copiï¿½-collï¿½ de https://learnopengl.com/code_viewer_gh.php?code=src/2.lighting/6.multiple_lights/multiple_lights.cpp
 								   // positions          // normales           // texture
 	-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  0.0f,
 	0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
@@ -33,7 +33,7 @@ const float ModeleItem::sommets[]{ // copié-collé de https://learnopengl.com/cod
 	-0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f,  0.0f,
 };
 const int ModeleItem::taille_sommets {sizeof(ModeleItem::sommets)};
-const int ModeleItem::indices[]{ //copié-collé modifié de http://learningwebgl.com/lessons/lesson06/index.html
+const int ModeleItem::indices[]{ //copiï¿½-collï¿½ modifiï¿½ de http://learningwebgl.com/lessons/lesson06/index.html
 	0, 2, 1,      0, 3, 2,
 	4, 5, 6,      4, 6, 7,
 	8, 9, 10,     8, 10, 11,
@@ -58,7 +58,7 @@ ModeleItem::~ModeleItem()
 
 void ModeleItem::initialier_buffer()
 {
-	//Les données des sommets doivent être inscrites dans cet ordre: positions, normales, texture
+	//Les donnï¿½es des sommets doivent ï¿½tre inscrites dans cet ordre: positions, normales, texture
 	unsigned int VBO, EBO;
 	glGenBuffers(1, &EBO);
 	glGenBuffers(1, &VBO);
@@ -87,6 +87,6 @@ void ModeleItem::dessiner(glm::mat4 matrice_projection, glm::mat4 matrice_modele
 
 	glBindTexture(GL_TEXTURE_2D, this->textures[type]);
 	glBindVertexArray(this->buffer_sommets);
-	glDrawElements(GL_TRIANGLES, ModeleItem::taille_indices, GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
 }

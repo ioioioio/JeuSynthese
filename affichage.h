@@ -1,7 +1,13 @@
 #ifndef AFFICHAGE_H
 #define AFFICHAGE_H
 
-#include <glad/glad.h>
+#ifdef __EMSCRIPTEN__
+    #include <emscripten.h>
+    #include <emscripten/html5.h>
+    #include <GLES3/gl3.h>
+#else
+    #include <glad/glad.h>
+#endif
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 //#include <GLFW/glfw3.h>
