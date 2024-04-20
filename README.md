@@ -1,11 +1,11 @@
 # ProjetSynthese
-This was my final project for my associate degree in Computer Science (December 2017), completing my first sixteen months of programming experience. It has been written in four months, with very limited previous knowledge of C or C++ (or git). It is advised not to look at the code or the folder structure.
+This was my final project for my associate degree in Computer Science (December 2017), marking the completion of my first sixteen months of programming experience. It was written over four months with very limited prior knowledge of C or C++ (or Git).
 
-The project is a fully playable first person shooter (FPS). The player compete simple AIs on maps randomly generated.
+The project is a fully playable first-person shooter (FPS) where the player competes against simple bots on randomly generated maps.
 
-My personal objectives was to use a limited set of libraries to acquire a deep understanding of how everything is done. I used GLFW to manage the window and handle the keyboard, GLAD to load OpenGL's functions, glm for the basic matrix and vector calculus, stb_image to load the textures, and FreeType to display the text. It has been highly influenced by [https://learnopengl.com/](https://learnopengl.com/).
+My personal objective was to use a limited set of libraries to gain a deep understanding of how everything works. I used [GLFW](êhttps://www.glfw.org/) to manage the window and handle the keyboard, [GLAD](https://glad.dav1d.de/) to load OpenGL's functions, [GLM](https://glm.g-truc.net/0.9.9/index.html) for basic matrix and vector calculus, [stb_image](https://github.com/nothings/stb/blob/master/stb_image.h) to load the textures, and [FreeType](https://freetype.org/) to display text. This project was heavily influenced by [https://learnopengl.com/](https://learnopengl.com/).
 
-Some shortcuts have been taken in order to deliver a fully playable FPS on time. For example there is no lightning, the maps are a bit square (I see it as a failure everytime someone compares it to Minecraft), and the AIs have a complete knowledge of the map. However, the physic engine does not depend on the squareness of the maps.
+Some shortcuts were taken to deliver a fully playable FPS on time. For example, there is no lighting, the maps are a bit square, and the bots have complete knowledge of the map. However, the physics engine does not depend on the squareness of the maps.
 
 I am not the author of the textures. The credits can be found in [source.txt](https://github.com/ioioioio/JeuSynthese/blob/master/textures/sources.txt).
 
