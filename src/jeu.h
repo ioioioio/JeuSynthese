@@ -1,4 +1,4 @@
-#ifndef JEU_h
+#ifndef JEU_H
 #define JEU_H
 #ifdef __EMSCRIPTEN__
     #include <emscripten.h>
