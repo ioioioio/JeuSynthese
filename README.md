@@ -3,11 +3,27 @@ This was my final project for my associate degree in Computer Science (December 
 
 The project is a fully playable first-person shooter (FPS) where the player competes against simple bots on randomly generated maps.
 
-My personal objective was to use a limited set of libraries to gain a deep understanding of how everything works. I used [GLFW](êhttps://www.glfw.org/) to manage the window and handle the keyboard, [GLAD](https://glad.dav1d.de/) to load OpenGL's functions, [GLM](https://glm.g-truc.net/0.9.9/index.html) for basic matrix and vector calculus, [stb_image](https://github.com/nothings/stb/blob/master/stb_image.h) to load the textures, and [FreeType](https://freetype.org/) to display text. This project was heavily influenced by [https://learnopengl.com/](https://learnopengl.com/).
+My personal objective was to use a limited set of libraries to gain a deep understanding of how everything works. I used [GLFW](https://www.glfw.org/) to manage the window and handle the keyboard, [GLAD](https://glad.dav1d.de/) to load OpenGL's functions, [GLM](https://glm.g-truc.net/0.9.9/index.html) for basic matrix and vector calculus, [stb_image](https://github.com/nothings/stb/blob/master/stb_image.h) to load the textures, and [FreeType](https://freetype.org/) to display text. This project was heavily influenced by [https://learnopengl.com/](https://learnopengl.com/).
 
 Some shortcuts were taken to deliver a fully playable FPS on time. For example, there is no lighting, the maps are a bit square, and the bots have complete knowledge of the map. However, the physics engine does not depend on the squareness of the maps.
 
 I am not the author of the textures. The credits can be found in [source.txt](https://github.com/ioioioio/JeuSynthese/blob/master/textures/sources.txt).
+
+The Web Assembly port is an addition from 2024.
+
+## Play
+[Play in browser](https://ioioioio.github.io/JeuSynthese/JeuSynthese.html)
+
+### Controls
+- A: Move left
+- D: Move right
+- W: Move forward
+- S: Move backward
+- C: Change view (switch between player and bots' views)
+- N: No Clip mode (pass through walls)
+- R: Reload (new game)
+- 1: First type of fire
+- 2: Second type of fire
 
 ## Images
 [![image1](https://raw.githubusercontent.com/ioioioio/JeuSynthese/master/images/thumbnails/image1.png)](https://raw.githubusercontent.com/ioioioio/JeuSynthese/master/images/source/image1.png)
@@ -17,8 +33,6 @@ I am not the author of the textures. The credits can be found in [source.txt](ht
 [![image5](https://raw.githubusercontent.com/ioioioio/JeuSynthese/master/images/thumbnails/image5.png)](https://raw.githubusercontent.com/ioioioio/JeuSynthese/master/images/source/image5.png)
 [![image6](https://raw.githubusercontent.com/ioioioio/JeuSynthese/master/images/thumbnails/image6.png)](https://raw.githubusercontent.com/ioioioio/JeuSynthese/master/images/source/image6.png)
 
-## Video
-[![video](https://raw.githubusercontent.com/ioioioio/JeuSynthese/master/images/source/video_preview.png)](https://drive.google.com/open?id=1K2qOEwOy1DAEULGPxS6SaIC325uOlYIq)
 
 ## Building and running
 
@@ -72,13 +86,3 @@ Headers: include
 The dll for freetype is included in [libs](https://github.com/ioioioio/JeuSynthese/tree/master/libs).
 
 The dll for glfw3.dll can be downloaded on [http://www.glfw.org/](http://www.glfw.org/). There is already one included for VisualStudio 2015 64 bit in [libs](https://github.com/ioioioio/JeuSynthese/tree/master/libs). 
-
-### Full screen
-Open [main.cpp](https://github.com/ioioioio/JeuSynthese/blob/master/main.cpp)  
-Set the variable LARGEUR_FENETRE to the exact value of the width of the screen  
-Set the variable HAUTEUR_FENETRE to the exact value of the height of the screen  
-Uncomment that line:  
-    GLFWwindow* fenetre = glfwCreateWindow(LARGEUR_FENETRE, HAUTEUR_FENETRE, "Projet synthese", glfwGetPrimaryMonitor(), nullptr);  
-Comment that line:  
-    GLFWwindow* fenetre = glfwCreateWindow(LARGEUR_FENETRE, HAUTEUR_FENETRE, "Projet synthese", NULL, NULL);
-
